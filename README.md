@@ -8,3 +8,8 @@
    - copy connection uri
    - replace password in the uri with your db user password. you can create user password in the console
    - if above steps dont work please retry from step 1.
+  
+#Running agent-1
+- cd agent-1
+- create .env (refer .env.example) add your api keys
+- refer Readme file to run
