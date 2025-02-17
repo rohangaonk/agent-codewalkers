@@ -10,8 +10,8 @@ import { RunnableSequence, RunnablePassthrough } from "@langchain/core/runnables
 import { StringOutputParser } from "@langchain/core/output_parsers";
 import * as fs from 'fs';
 
-process.env.MISTRAL_API_KEY="vYKsUneUgfrUsClt9OhMqCcBNRKik8EB"
-process.env.ATLAS_CONNECTION_STRING = "mongodb+srv://royy3184:seikTNgEoJkcm44b@cluster0.ce8u5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+process.env.MISTRAL_API_KEY=""
+process.env.ATLAS_CONNECTION_STRING = "";
 const client = new MongoClient(process.env.ATLAS_CONNECTION_STRING);
 
 async function run() {
