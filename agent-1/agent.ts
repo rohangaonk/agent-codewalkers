@@ -49,7 +49,6 @@ export async function callAgent(client: MongoClient, query: string, thread_id: s
       );
 
       const result = await vectorStore.similaritySearchWithScore(query, n);
-      console.log("fetched result", result)
       return JSON.stringify(result);
     },
     {

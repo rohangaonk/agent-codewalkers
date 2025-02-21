@@ -1,3 +1,4 @@
+import "dotenv/config"
 import { formatDocumentsAsString } from "langchain/util/document";
 import { MongoClient } from "mongodb";
 import { MongoDBAtlasVectorSearch } from "@langchain/mongodb";
@@ -10,9 +11,7 @@ import { RunnableSequence, RunnablePassthrough } from "@langchain/core/runnables
 import { StringOutputParser } from "@langchain/core/output_parsers";
 import * as fs from 'fs';
 
-process.env.MISTRAL_API_KEY=""
-process.env.ATLAS_CONNECTION_STRING = "";
-const client = new MongoClient(process.env.ATLAS_CONNECTION_STRING);
+const client = new MongoClient(process.env.MONGODB_ATLAS_URI);
 
 async function run() {
     try {
@@ -38,7 +37,7 @@ async function run() {
     //   const pdfData = Buffer.from(pdfBuffer);
     //   fs.writeFileSync("atlas_best_practices.pdf", pdfData);
   
-    //   // Load and split the sample data
+    // //   // Load and split the sample data
     //   const loader = new PDFLoader(`atlas_best_practices.pdf`);
     //   const data = await loader.load();
     //   const textSplitter = new RecursiveCharacterTextSplitter({
@@ -90,7 +89,7 @@ async function run() {
   
     /************ */
     // Basic semantic search
-    const basicOutput = await vectorStore.similaritySearch("MongoDB Atlas security");
+    const basicOutput = await vectorStore.similaritySearch("does mongodb support transactions?");
     const basicResults = basicOutput.map((results => ({
     pageContent: results.pageContent,
     pageNumber: results.metadata.loc.pageNumber,
